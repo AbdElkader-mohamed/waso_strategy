@@ -1,0 +1,20 @@
+// @use './scss/helpers/variables' as *;
+
+/*--------------------
+  Global
+--------------------*/
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+/*--------------------
+  Utilities
+--------------------*/
+.warning-text {
+  color: var(--mainColor);
+}
+.danger-text {
+  color: var(--subColor);
+}
+.section-py {
+  padding: 80px 0;
+}

@@ -1,0 +1,78 @@
+@use '../helpers/variables' as *;
+/*----------------------------
+  navbar
+-----------------------------*/ 
+.navbar {
+  .logo {
+    font-size: 32px;
+    font-weight: var(--fw-bold);
+    color: var(--mainColor);
+    span {
+      color:var(--subColor);
+    }
+  }
+  .navbar-toggler {
+    border: 0;
+    box-shadow: none !important;
+    .navbar-toggler-icon  {
+      background: var(--darkColor);
+      transition: background 10ms 300ms ease;
+      display: block;
+      width: 30px;
+      height: 2px;
+      position: relative;
+      &::before,
+      &::after {
+        content: '';
+        transition: top 300ms 350ms ease, transform 300ms 50ms ease;
+        position: absolute;
+        right: 0;
+        left: 0;
+        background: var(--darkColor);
+        width: 30px;
+        height: 2px;
+        top: 8px;
+      }
+      &::before {
+        top: -8px;
+      }
+    }
+    &[aria-expanded="true"] .navbar-toggler-icon:before {
+      transform: rotate(45deg);
+    }
+    &[aria-expanded="true"] .navbar-toggler-icon::after {
+      transform: rotate(-45deg);
+    }
+    &[aria-expanded="true"] .navbar-toggler-icon::after ,
+    &[aria-expanded="true"] .navbar-toggler-icon::before {
+      top: 0;
+      transition: top 300ms 50ms ease, transform 300ms 350ms ease;
+    }
+    &[aria-expanded="true"] .navbar-toggler-icon {
+      background: transparent;
+    }
+  }
+  .nav-collapse {
+    justify-content: end;
+    // justify-content: start;
+    .nav-link {
+      padding:15px 25px ;
+      text-transform: uppercase;
+      color: var(--p-color);
+      transition: var(--main-transition);
+      font: {
+        size:14px;
+        weight:var(--fw-medium);
+      }
+      small {
+        color: var(--mainColor);
+        font-weight: var(--fw-bold);
+      }
+      &.active,
+      &:hover {
+        color: var(--subColor);
+      }
+    }
+  }
+}
+
